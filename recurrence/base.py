@@ -560,8 +560,10 @@ class Recurrence(object):
                 rruleset.rdate(rdate)
             elif not dtend:
                 rruleset.rdate(rdate)
-        if dtend is not None:
-            rruleset.rdate(dtend)
+
+        # Don't explicitly include DTEND as an occurence.
+        #if dtend is not None:
+        #    rruleset.rdate(dtend)
 
         for exdate in self.exdates:
             exdate = normalize_offset_awareness(exdate, dtstart)
